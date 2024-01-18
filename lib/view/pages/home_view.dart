@@ -51,11 +51,56 @@ class _HomePageState extends State<HomePage> {
       _errorPage(product!.errors!);
     }
 
-    return _productInformation();
+    return _productInformation(product!.product!);
   }
 
-  Widget _productInformation() {
-    return const Placeholder();
+  Widget _productInformation(Product p) {
+    return ListView(
+      padding: const EdgeInsets.only(
+        left: 10,
+        right: 10,
+      ),
+      children: [
+        const SizedBox(
+          height: 20,
+        ),
+        Container(
+          height: 250,
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.pink.withOpacity(0.3)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SizedBox(
+                width: 150,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.network(p.imageFrontUrl ?? ''),
+                ),
+              ),
+              const SizedBox(
+                width: 20,
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Material(
+                    type: MaterialType.card,
+                    child: Text(
+                      p.productName ?? 'Name not provided.',
+                      style: Theme.of(context).textTheme.headlineSmall,
+                      softWrap: true,
+                    ),
+                  ),
+                ],
+              )
+            ],
+          ),
+        )
+      ],
+    );
   }
 
   Widget _noProduct() {
@@ -63,10 +108,14 @@ class _HomePageState extends State<HomePage> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          const Icon(Icons.warning_amber_rounded),
+          const Icon(
+            Icons.warning_amber_rounded,
+            size: 100,
+          ),
           Text(
             'Scanne ein Produkt um dessen Eigenschaften zu sehen.',
             style: Theme.of(context).textTheme.headlineMedium,
+            textAlign: TextAlign.center,
           ),
         ],
       ),
