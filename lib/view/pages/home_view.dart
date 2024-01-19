@@ -1,7 +1,6 @@
 import 'package:epicurea/comp/model/product_wrapper.dart';
 import 'package:epicurea/view/pages/scanner_view.dart';
 import 'package:flutter/material.dart';
-import 'package:openfoodfacts/openfoodfacts.dart';
 
 import '../widgets/no_product_widget.dart';
 import '../widgets/product_error_widget.dart';

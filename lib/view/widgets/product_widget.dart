@@ -1,7 +1,6 @@
 import 'package:epicurea/comp/localized.dart';
 import 'package:epicurea/comp/model/product_wrapper.dart';
 import 'package:flutter/material.dart';
-import 'package:openfoodfacts/openfoodfacts.dart';
 
 class ProductWidget extends StatelessWidget {
   const ProductWidget({
@@ -53,7 +52,7 @@ class ProductWidget extends StatelessWidget {
                     softWrap: true,
                   ),
                   Text(
-                    Localized.getMany(p.product.brandsTagsInLanguages),
+                    p.product.brands ?? 'No Brand',
                     style: Theme.of(context).textTheme.labelMedium,
                     textAlign: TextAlign.justify,
                     softWrap: true,
@@ -63,6 +62,7 @@ class ProductWidget extends StatelessWidget {
             ],
           ),
         ),
+        const SizedBox(height: 5,),
         Container(
           height: 150,
           padding: const EdgeInsets.all(20),
