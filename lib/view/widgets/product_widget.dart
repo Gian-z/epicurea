@@ -64,11 +64,69 @@ class ProductWidget extends StatelessWidget {
         ),
         const SizedBox(height: 5,),
         Container(
-          height: 150,
+          height: 75,
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: Colors.pink.withOpacity(0.3)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Nutriscore:',
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              const SizedBox(width: 40,),
+              Text(
+                  p.product.nutriscore?.toUpperCase() ?? 'Not Provided',
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 5,),
+        Container(
+          height: 75,
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.pink.withOpacity(0.3)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'NOVA:',
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              const SizedBox(width: 40,),
+              Text(
+                p.product.novaGroup?.toString() ?? 'Not Provided',
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 5,),
+        Container(
+          height: 75,
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.pink.withOpacity(0.3)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'ECO-Score:',
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              const SizedBox(width: 40,),
+              Text(
+                p.product.ecoscoreGrade?.toString() ?? 'Not Provided',
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+            ],
+          ),
         )
       ],
     );
