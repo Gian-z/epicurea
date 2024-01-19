@@ -1,3 +1,5 @@
+import 'package:epicurea/comp/localized.dart';
+import 'package:epicurea/comp/model/product_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 
@@ -9,7 +11,7 @@ class ProductWidget extends StatelessWidget {
   });
 
   final BuildContext context;
-  final Product p;
+  final ProductWrapper p;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class ProductWidget extends StatelessWidget {
           height: 20,
         ),
         Container(
-          height: 250,
+          height: 150,
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
@@ -32,27 +34,41 @@ class ProductWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               SizedBox(
-                width: 150,
+                width: 100,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
-                  child: Image.network(p.imageFrontUrl ?? ''),
+                  child: Image.network(p.product.imageFrontUrl ?? ''),
                 ),
               ),
               const SizedBox(
                 width: 20,
               ),
               Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    p.productName ?? 'Name not provided.',
-                    style: Theme.of(context).textTheme.headlineSmall,
+                    Localized.get(p.product.productNameInLanguages),
+                    style: Theme.of(context).textTheme.titleLarge,
+                    textAlign: TextAlign.justify,
+                    softWrap: true,
+                  ),
+                  Text(
+                    Localized.getMany(p.product.brandsTagsInLanguages),
+                    style: Theme.of(context).textTheme.labelMedium,
+                    textAlign: TextAlign.justify,
                     softWrap: true,
                   ),
                 ],
               )
             ],
           ),
+        ),
+        Container(
+          height: 150,
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.pink.withOpacity(0.3)),
         )
       ],
     );

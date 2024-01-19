@@ -1,5 +1,6 @@
 import 'package:epicurea/comp/services/product_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
 class Scanner extends StatelessWidget {
@@ -25,6 +26,7 @@ class Scanner extends StatelessWidget {
               }
 
               captured = true;
+              HapticFeedback.heavyImpact();
 
               final Barcode barcode = capture.barcodes.first;
               debugPrint('Barcode found! ${barcode.rawValue}');

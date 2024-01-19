@@ -6,6 +6,7 @@ void main() {
   OpenFoodAPIConfiguration.userAgent = UserAgent(name: 'epicurea');
   OpenFoodAPIConfiguration.globalCountry = OpenFoodFactsCountry.SWITZERLAND;
   OpenFoodAPIConfiguration.globalLanguages = <OpenFoodFactsLanguage>[
+    OpenFoodFactsLanguage.GERMAN,
     OpenFoodFactsLanguage.ENGLISH
   ];
 
