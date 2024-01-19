@@ -1,9 +1,10 @@
+import 'package:epicurea/comp/model/product_wrapper.dart';
 import 'package:flutter/foundation.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 
 class ProductService {
-  static Future<ProductResultV3?> getProduct(Barcode barcode) async {
+  static Future<ProductProvider> getProduct(Barcode barcode) async {
     var barcodeValue = barcode.rawValue!;
     ProductResultV3? product;
     try {
@@ -14,6 +15,6 @@ class ProductService {
       debugPrint(e.toString());
     }
 
-    return product;
+    return ProductProvider(result: product);
   }
 }

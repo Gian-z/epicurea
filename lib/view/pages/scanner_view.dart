@@ -6,10 +6,10 @@ class Scanner extends StatelessWidget {
   Scanner({super.key});
 
   final cameraController = MobileScannerController();
-  bool captured = false;
 
   @override
   Widget build(BuildContext context) {
+    bool captured = false;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -27,14 +27,13 @@ class Scanner extends StatelessWidget {
               captured = true;
 
               final Barcode barcode = capture.barcodes.first;
+              debugPrint('Barcode found! ${barcode.rawValue}');
+
               var product = await ProductService.getProduct(barcode);
 
               if (context.mounted) {
                 Navigator.pop(context, product);
               }
-
-              debugPrint('Barcode found! ${barcode.rawValue}');
-              debugPrint(product!.product?.productName ?? 'Not found');
             },
           ),
           _cameraOverlay()
