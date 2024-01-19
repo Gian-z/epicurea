@@ -1,16 +1,12 @@
 # epicurea
 
-A new Flutter project.
+An app to scan and view your foodproducts.
+
+# Linting
+The custom linting is done with the custom_lints plugin.
+The lints are defined in the ./lint Folder and work automatically after executing ~flutter pub get
 
 ## Getting Started
 
 This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Setup an emulator or connect to a physical devie. Then run ~flutter run
