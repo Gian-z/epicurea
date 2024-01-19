@@ -48,18 +48,18 @@ class _HomePageState extends State<HomePage> {
 
   Widget _content() {
     if (!provider.isPresent()) {
-      return NoProductWidget(context: context);
+      return NoProductWidget(Context: context);
     }
 
     if (provider.hasErrors()) {
-      return ProductErrorWidget(errors: provider.errors);
+      return ProductErrorWidget(Errors: provider.Errors);
     }
 
     if (!provider.canPopulate()) {
-      return NoProductWidget(context: context);
+      return NoProductWidget(Context: context);
     }
 
     var wrapper = provider.populate();
-    return ProductWidget(context: context, p: wrapper);
+    return ProductWidget(Context: context, P: wrapper);
   }
 }

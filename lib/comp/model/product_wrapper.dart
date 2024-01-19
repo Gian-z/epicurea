@@ -2,42 +2,42 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 
 class ProductProvider {
   ProductProvider({
-    this.result,
+    this.Result,
   }) {
-    warnings = result?.warnings ?? List.empty();
-    errors = result?.errors ?? List.empty();
+    Warnings = Result?.warnings ?? List.empty();
+    Errors = Result?.errors ?? List.empty();
   }
 
-  final ProductResultV3? result;
-  late List<ProductResultFieldAnswer> warnings;
-  late List<ProductResultFieldAnswer> errors;
+  final ProductResultV3? Result;
+  late List<ProductResultFieldAnswer> Warnings;
+  late List<ProductResultFieldAnswer> Errors;
 
   bool isPresent() {
-    return result != null;
+    return Result != null;
   }
 
   bool hasErrors() {
-    return errors.isNotEmpty;
+    return Errors.isNotEmpty;
   }
 
   bool hasWarnings() {
-    return warnings.isNotEmpty;
+    return Warnings.isNotEmpty;
   }
 
   bool canPopulate() {
-    return result?.product != null;
+    return Result?.product != null;
   }
 
   ProductWrapper populate() {
-    if (result?.product == null) {
+    if (Result?.product == null) {
       throw Exception(
           "Populate failed. Check canPopulate() before populating.");
     }
 
     return ProductWrapper(
-      product: result!.product!,
-      warnings: result!.warnings ?? List.empty(),
-      errors: result!.errors ?? List.empty(),
+      product: Result!.product!,
+      warnings: Result!.warnings ?? List.empty(),
+      errors: Result!.errors ?? List.empty(),
     );
   }
 }

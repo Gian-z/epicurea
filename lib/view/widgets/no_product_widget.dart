@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 class NoProductWidget extends StatelessWidget {
   const NoProductWidget({
     super.key,
-    required this.context,
+    required this.Context,
   });
 
-  final BuildContext context;
+  final BuildContext Context;
 
   @override
   Widget build(BuildContext context) {

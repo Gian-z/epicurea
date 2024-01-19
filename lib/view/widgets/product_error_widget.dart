@@ -4,22 +4,22 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 class ProductErrorWidget extends StatelessWidget {
   const ProductErrorWidget({
     super.key,
-    required this.errors,
+    required this.Errors,
   });
 
-  final List<ProductResultFieldAnswer> errors;
+  final List<ProductResultFieldAnswer> Errors;
 
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      itemCount: errors.length,
+      itemCount: Errors.length,
       shrinkWrap: true,
       separatorBuilder: (context, index) => const SizedBox(
         height: 25,
       ),
       padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
       itemBuilder: (context, index) {
-        var error = errors[index];
+        var error = Errors[index];
         return Container(
           height: 100,
           decoration: BoxDecoration(

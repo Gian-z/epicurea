@@ -15,6 +15,6 @@ class ProductService {
       debugPrint(e.toString());
     }
 
-    return ProductProvider(result: product);
+    return ProductProvider(Result: product);
   }
 }

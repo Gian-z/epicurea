@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 class ProductWidget extends StatelessWidget {
   const ProductWidget({
     super.key,
-    required this.context,
-    required this.p,
+    required this.Context,
+    required this.P,
   });
 
-  final BuildContext context;
-  final ProductWrapper p;
+  final BuildContext Context;
+  final ProductWrapper P;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class ProductWidget extends StatelessWidget {
                 width: 100,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
-                  child: Image.network(p.product.imageFrontUrl ?? ''),
+                  child: Image.network(P.product.imageFrontUrl ?? ''),
                 ),
               ),
               const SizedBox(
@@ -46,13 +46,13 @@ class ProductWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    Localized.get(p.product.productNameInLanguages),
+                    Localized.get(P.product.productNameInLanguages),
                     style: Theme.of(context).textTheme.titleLarge,
                     textAlign: TextAlign.justify,
                     softWrap: true,
                   ),
                   Text(
-                    p.product.brands ?? 'No Brand',
+                    P.product.brands ?? 'No Brand',
                     style: Theme.of(context).textTheme.labelMedium,
                     textAlign: TextAlign.justify,
                     softWrap: true,
@@ -78,7 +78,7 @@ class ProductWidget extends StatelessWidget {
               ),
               const SizedBox(width: 40,),
               Text(
-                  p.product.nutriscore?.toUpperCase() ?? 'Not Provided',
+                  P.product.nutriscore?.toUpperCase() ?? 'Not Provided',
                 style: Theme.of(context).textTheme.titleLarge,
               ),
             ],
@@ -100,7 +100,7 @@ class ProductWidget extends StatelessWidget {
               ),
               const SizedBox(width: 40,),
               Text(
-                p.product.novaGroup?.toString() ?? 'Not Provided',
+                P.product.novaGroup?.toString() ?? 'Not Provided',
                 style: Theme.of(context).textTheme.titleLarge,
               ),
             ],
@@ -122,7 +122,7 @@ class ProductWidget extends StatelessWidget {
               ),
               const SizedBox(width: 40,),
               Text(
-                p.product.ecoscoreGrade?.toString() ?? 'Not Provided',
+                P.product.ecoscoreGrade?.toString() ?? 'Not Provided',
                 style: Theme.of(context).textTheme.titleLarge,
               ),
             ],

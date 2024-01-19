@@ -6,7 +6,7 @@ import 'package:mobile_scanner/mobile_scanner.dart';
 class Scanner extends StatelessWidget {
   Scanner({super.key});
 
-  final cameraController = MobileScannerController();
+  final CameraController = MobileScannerController();
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class Scanner extends StatelessWidget {
       body: Stack(
         children: [
           MobileScanner(
-            controller: cameraController,
+            controller: CameraController,
             onDetect: (capture) async {
               if (captured) {
                 return;
@@ -79,7 +79,7 @@ class Scanner extends StatelessWidget {
       color: Colors.white,
       icon: const Icon(Icons.cameraswitch),
       iconSize: 32.0,
-      onPressed: () => cameraController.switchCamera(),
+      onPressed: () => CameraController.switchCamera(),
     );
   }
 
@@ -87,7 +87,7 @@ class Scanner extends StatelessWidget {
     return IconButton(
       color: Colors.white,
       icon: ValueListenableBuilder(
-        valueListenable: cameraController.torchState,
+        valueListenable: CameraController.torchState,
         builder: (context, state, child) {
           switch (state) {
             case TorchState.off:
@@ -99,7 +99,7 @@ class Scanner extends StatelessWidget {
         },
       ),
       iconSize: 32.0,
-      onPressed: () => cameraController.toggleTorch(),
+      onPressed: () => CameraController.toggleTorch(),
     );
   }
 }
